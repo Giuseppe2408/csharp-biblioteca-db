@@ -119,4 +119,45 @@ public class BibliotecaDb
         int affectedRows = command.ExecuteNonQuery();
     }
 
+
+    public void CercaLibri()
+    {
+        Console.WriteLine("inserisci titolo");
+        string inputRicerca = Console.ReadLine();
+
+
+        string query = "SELECT * FROM documenti WHERE tipo = 'libro' AND titolo=@titolo";
+
+        SqlCommand command = new SqlCommand(query, ConnessioneSQL);
+        command.Parameters.Add(new SqlParameter("@titolo", inputRicerca));
+
+        SqlDataReader reader = command.ExecuteReader();
+        while(reader.Read())
+        {
+            string titolo = reader.GetString(1);
+            Console.WriteLine(titolo);
+        }
+    }
+
+    public void CercaDvD()
+    {
+        Console.WriteLine("inserisci titolo");
+        string inputRicerca = Console.ReadLine();
+
+
+        string query = "SELECT * FROM documenti WHERE tipo = 'DvD' AND titolo=@titolo";
+
+        SqlCommand command = new SqlCommand(query, ConnessioneSQL);
+        command.Parameters.Add(new SqlParameter("@titolo", inputRicerca));
+
+        SqlDataReader reader = command.ExecuteReader();
+        while (reader.Read())
+        {
+            string titolo = reader.GetString(1);
+            Console.WriteLine(titolo);
+        }
+    }
 }
+
+
+

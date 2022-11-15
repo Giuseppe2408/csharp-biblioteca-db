@@ -14,8 +14,8 @@ BibliotecaDb bibliotecaDB = new BibliotecaDb();
             string titoloUt = Console.ReadLine();
             Console.WriteLine("digita 1 per aggiungere un libro");
             Console.WriteLine("digita 2 per aggiungere un dvd");
-            Console.WriteLine("digita 3 per la lista dei libri");
-            Console.WriteLine("digita 2 per la lista dei dvd");
+            Console.WriteLine("digita 3 per cercare un libro");
+            Console.WriteLine("digita 2 per cercare un dvd");
             int sceltaUt = Convert.ToInt32(Console.ReadLine());
             switch (sceltaUt)
             {
@@ -47,12 +47,16 @@ BibliotecaDb bibliotecaDB = new BibliotecaDb();
 
 
         case 3:
-
-
-
-
+                 
+               bibliotecaDB.CercaLibri();
+      
             break;
 
+        case 4:
+
+            bibliotecaDB.CercaDvD();
+
+            break;
     }
 
            
